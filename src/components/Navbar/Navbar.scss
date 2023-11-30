@@ -4,8 +4,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--main-color);
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0.3) 50%);
   z-index: 100;
+  &.scrolled {
+    background-color: var(--main-color);
+  }
 }
 .container {
   padding: 0px 50px;
