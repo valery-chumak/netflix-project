@@ -9,6 +9,9 @@ const Homepage = () => {
       <Navbar />
       <Featured type="series" />
       <MovieList />
+      <MovieList />
+      <MovieList />
+      <MovieList />
     </div>
   );
 };
