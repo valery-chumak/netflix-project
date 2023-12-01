@@ -31,7 +31,64 @@
       justify-content: space-between;
 
       .logo {
-        height: 40px;
+        height: 35px;
+      }
+      .login-button {
+        background-color: var(--highlight-color);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-style: 16px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+  .container {
+    width: -webkit-fill-available;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    h1 {
+      font-style: 50px;
+    }
+    h2 {
+      margin: 20px 0;
+    }
+    p {
+      font-style: 20px;
+    }
+    .input {
+      width: 50%;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      height: 50px;
+      border-radius: 5px;
+
+      input {
+        flex: 9;
+        height: 100%;
+        border: none;
+        padding: 0 10px;
+      }
+
+      .register-button {
+        flex: 3;
+        height: 100%;
+        background-color: var(--highlight-color);
+        color: white;
+        border: none;
+        font-style: 22px;
+        cursor: pointer;
       }
     }
   }

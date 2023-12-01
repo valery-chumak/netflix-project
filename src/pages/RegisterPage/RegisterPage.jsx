@@ -1,6 +1,17 @@
+import { useRef, useState } from "react";
 import "./RegisterPage.scss";
 
 const RegisterPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleStart = () => {
+    setEmail(emailRef.current.value);
+  };
+  const handleRegister = () => {
+    setPassword(passwordRef.current.value);
+  };
   return (
     <div className="register">
       <div className="top">
@@ -19,10 +30,31 @@ const RegisterPage = () => {
         <p>
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <div className="input">
-          <input type="email" name="email" placeholder="Email" />
-          <button className="register-button">Get Started</button>
-        </div>
+        {!email ? (
+          <div className="input">
+            <input
+              type="email"
+              name="email"
+              ref={emailRef}
+              placeholder="Email"
+            />
+            <button className="register-button" onClick={handleStart}>
+              Get Started
+            </button>
+          </div>
+        ) : (
+          <form className="input">
+            <input
+              type="password"
+              name="password"
+              ref={passwordRef}
+              placeholder="Password"
+            />
+            <button className="register-button" onClick={handleRegister}>
+              Start
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
