@@ -34,16 +34,16 @@ const MovieList = () => {
           />
         )}
         <div className="movies-container" ref={listRef}>
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
-          <MovieItem />
+          <MovieItem index={0} />
+          <MovieItem index={1} />
+          <MovieItem index={2} />
+          <MovieItem index={3} />
+          <MovieItem index={4} />
+          <MovieItem index={5} />
+          <MovieItem index={6} />
+          <MovieItem index={7} />
+          <MovieItem index={8} />
+          <MovieItem index={9} />
         </div>
 
         <ArrowForwardIosOutlined
