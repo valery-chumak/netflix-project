@@ -6,7 +6,7 @@ import "./MovieList.scss";
 import MovieItem from "../MovieItem/MovieItem";
 import { useRef, useState } from "react";
 
-const MovieList = () => {
+const MovieList = ({ list }) => {
   const [slide, setSlide] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
   const listRef = useRef();
@@ -25,7 +25,7 @@ const MovieList = () => {
 
   return (
     <div className="list">
-      <span className="list-title">Continue to watch</span>
+      <span className="list-title">{list.title}</span>
       <div className="wrapper">
         {isMoved && (
           <ArrowBackIosOutlined
@@ -34,16 +34,9 @@ const MovieList = () => {
           />
         )}
         <div className="movies-container" ref={listRef}>
-          <MovieItem index={0} />
-          <MovieItem index={1} />
-          <MovieItem index={2} />
-          <MovieItem index={3} />
-          <MovieItem index={4} />
-          <MovieItem index={5} />
-          <MovieItem index={6} />
-          <MovieItem index={7} />
-          <MovieItem index={8} />
-          <MovieItem index={9} />
+          {list.content.map((item, index) => (
+            <MovieItem key={index} index={index} item={item} />
+          ))}
         </div>
 
         <ArrowForwardIosOutlined

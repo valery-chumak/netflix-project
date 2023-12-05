@@ -1,7 +1,11 @@
 import { ArrowBackOutlined } from "@mui/icons-material";
 import "./MoviePage.scss";
+import { useLocation } from "react-router-dom";
 
 const MoviePage = () => {
+  let { state } = useLocation();
+
+  console.log(state.movie);
   return (
     <section className="movie-section">
       <div className="back">
@@ -9,7 +13,7 @@ const MoviePage = () => {
         Home
       </div>
       <video
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        src={state.movie.video}
         className="video"
         muted
         autoPlay
