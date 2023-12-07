@@ -2,10 +2,11 @@ import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import axios from "axios";
 import "./Featured.scss";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Featured = ({ type }) => {
+const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
-
+  const navigate = useNavigate();
   useEffect(() => {
     const getRandomContent = async () => {
       try {
@@ -27,7 +28,11 @@ const Featured = ({ type }) => {
       {type && (
         <div className="category">
           <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
@@ -44,14 +49,18 @@ const Featured = ({ type }) => {
       <div className="info">
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayArrow />
-            <span>Play</span>
-          </button>
-          <button className="more">
-            <InfoOutlined />
-            <span>More</span>
-          </button>
+          <Link to="/watch" state={{ movie: content }}>
+            <button className="play">
+              <PlayArrow />
+              <span>Play</span>
+            </button>
+          </Link>
+          <Link to="/watch" state={{ movie: content }}>
+            <button className="more">
+              <InfoOutlined />
+              <span>More</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

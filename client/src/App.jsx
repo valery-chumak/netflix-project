@@ -1,13 +1,14 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./App.scss";
 import Homepage from "./pages/Homepage/Homepage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import { AuthContext } from "./context/authContext/authContext";
 
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
   let navigate = useNavigate();
 
   useEffect(() => {

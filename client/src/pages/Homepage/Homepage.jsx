@@ -4,6 +4,7 @@ import Featured from "../../components/Featured/Featured";
 import MovieList from "../../components/MovieList/MovieList";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Homepage.scss";
+import Footer from "../../components/Footer/Footer";
 
 const Homepage = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -32,9 +33,10 @@ const Homepage = ({ type }) => {
   return (
     <div className="home">
       <Navbar />
-      <Featured type={type} />
+      <Featured type={type} setGenre={setGenre} />
       {lists.length > 0 &&
         lists.map((list) => <MovieList key={list._id} list={list} />)}
+      <Footer />
     </div>
   );
 };
