@@ -7,7 +7,7 @@ import { logout } from "../../context/authContext/authActions";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { state, dispatch } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
 
   window.onscroll = () => {
     setIsScrolled(window.scrollY === 0 ? false : true);

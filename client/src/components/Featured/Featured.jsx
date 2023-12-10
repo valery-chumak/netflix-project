@@ -2,18 +2,17 @@ import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import axios from "axios";
 import "./Featured.scss";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
-  const navigate = useNavigate();
   useEffect(() => {
     const getRandomContent = async () => {
       try {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNmMjhkYjJiZDJlZWI0ODkwYzdmMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMTYzOTAzNSwiZXhwIjoxNzAyMDcxMDM1fQ.NzYKOsb5gQ9_OxPWyGYHFqaENHBAJPjV2DBmHXoYhkc",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNiZThmNTM4M2Q2OWU1MDUyZjY2ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMjIzMDYxNiwiZXhwIjoxNzAyNjYyNjE2fQ.Hisl7wJZjGroh0hufUKT9zZ0iJ21PSjqLQ_HmACb0sQ",
           },
         });
         setContent(res.data[0]);

@@ -12,18 +12,18 @@ const Homepage = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axios.get(
+        const response = await axios.get(
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
           {
             headers: {
               token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNmMjhkYjJiZDJlZWI0ODkwYzdmMiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMTYzOTAzNSwiZXhwIjoxNzAyMDcxMDM1fQ.NzYKOsb5gQ9_OxPWyGYHFqaENHBAJPjV2DBmHXoYhkc",
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNiZThmNTM4M2Q2OWU1MDUyZjY2ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMjIzMDYxNiwiZXhwIjoxNzAyNjYyNjE2fQ.Hisl7wJZjGroh0hufUKT9zZ0iJ21PSjqLQ_HmACb0sQ",
             },
           }
         );
-        setLists(res.data);
+        setLists(response.data);
       } catch (error) {
         console.log(error);
       }

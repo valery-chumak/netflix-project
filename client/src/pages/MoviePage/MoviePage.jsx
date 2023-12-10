@@ -9,7 +9,6 @@ const MoviePage = () => {
 
   return (
     <>
-      {" "}
       <section className="movie-section">
         <div className="banner-wrapper">
           <img className="banner" src={img} alt={title} />
@@ -43,7 +42,7 @@ const MoviePage = () => {
               {limit} +
             </p>
             <p className="text">
-              The movie is unavailable for free watching. Watch trailer of{" "}
+              The movie is unavailable for free watching. Watch trailer of
               {title} ({year})
             </p>
           </div>
