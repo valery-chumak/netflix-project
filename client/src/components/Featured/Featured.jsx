@@ -1,27 +1,26 @@
 import { InfoOutlined, PlayArrow } from "@mui/icons-material";
-import axios from "axios";
+import { getRandomMovie } from "../../services/api";
 import "./Featured.scss";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
+
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNiZThmNTM4M2Q2OWU1MDUyZjY2ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMjIzMDYxNiwiZXhwIjoxNzAyNjYyNjE2fQ.Hisl7wJZjGroh0hufUKT9zZ0iJ21PSjqLQ_HmACb0sQ",
-          },
-        });
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        const res = await getRandomMovie(type);
         setContent(res.data[0]);
       } catch (error) {
         console.log(error);
       }
     };
+
     getRandomContent();
   }, [type]);
+
   return (
     <div className="featured">
       {type && (

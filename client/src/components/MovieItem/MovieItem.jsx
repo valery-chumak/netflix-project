@@ -6,20 +6,15 @@ import {
 } from "@mui/icons-material";
 import "./MovieItem.scss";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { getMovieById } from "../../services/api";
 const MovieItem = ({ index, item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get(`/movies/find/${item}`, {
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NmNiZThmNTM4M2Q2OWU1MDUyZjY2ZSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwMjIzMDYxNiwiZXhwIjoxNzAyNjYyNjE2fQ.Hisl7wJZjGroh0hufUKT9zZ0iJ21PSjqLQ_HmACb0sQ",
-          },
-        });
+        const res = await getMovieById(item);
         setMovie(res.data);
       } catch (error) {
         console.log(error);
